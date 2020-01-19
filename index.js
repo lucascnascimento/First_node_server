@@ -11,9 +11,9 @@ server.post("/projects", (req, res) => {
   return res.json(projects);
 });
 
-// server.get("/projects", (req, res) => {
-//   return res.json("hello res");
-// });
+server.get("/projects", (req, res) => {
+  return res.json(projects);
+});
 
 // server.delete("/projects", (req, res) => {
 //   return res.json("hello res");
