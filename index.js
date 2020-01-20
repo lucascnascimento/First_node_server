@@ -19,12 +19,19 @@ server.put("/projects/:id", (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
-  console.log(id);
-  console.log(title);
-
   projectIndex = projects.findIndex(obj => obj.id == id);
 
   projects[projectIndex].title = title;
+
+  return res.json(projects);
+});
+
+server.delete("/projects/:id", (req, res) => {
+  const { id } = req.params;
+
+  projectIndex = projects.findIndex(obj => obj.id == id);
+
+  projects.splice(projectIndex, 1);
 
   return res.json(projects);
 });
