@@ -15,6 +15,20 @@ server.get("/projects", (req, res) => {
   return res.json(projects);
 });
 
+server.put("/projects/:id", (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+
+  console.log(id);
+  console.log(title);
+
+  projectIndex = projects.findIndex(obj => obj.id == id);
+
+  projects[projectIndex].title = title;
+
+  return res.json(projects);
+});
+
 // server.delete("/projects", (req, res) => {
 //   return res.json("hello res");
 // });
