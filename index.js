@@ -10,9 +10,11 @@ let count = 0;
 
 // Middleware for id validation
 function checkIdExists(req, res, next) {
-  // if (projects.findIndex(obj => obj.id == req.params) == -1) {
-  //   return res.status(400).json({ error: "Project id does not exist" });
-  // }
+  const { id } = req.params;
+
+  if (projects.findIndex(obj => obj.id == id) == -1) {
+    return res.status(400).json({ error: "Project id does not exist" });
+  }
 
   return next();
 }
